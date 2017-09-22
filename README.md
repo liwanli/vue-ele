@@ -1,31 +1,21 @@
 # vue-ele
 
-## 项目使用说明
+> A Vue.js project
 
-### 简易vue+webpack+mock脚手架
+## Build Setup
 
-git clone 克隆项目
+``` bash
+# install dependencies
+npm install
 
-yarn install 安装项目依赖
+# serve with hot reload at localhost:8080
+npm run dev
 
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash 安装nvm
+# build for production with minification
+npm run build
 
-nvm use v4.5.0 使用v4.4.4版本及以上node，由于webpack-dev-server对node版本要求
+# build for production and view the bundle analyzer report
+npm run build --report
+```
 
-命令说明
-
-命令	功能
-npm run start	运行本地项目
-npm run build	打包项目
-文件结构说明
-
-src/page/XXX/XXX 如(src/page/test1/index.vue) 存放页面
-src/assets 存放静态资源
-static/ 打包结果
-新建功能页面步骤
-
-在src/page目录下新建文件夹
-数据mock
-
-npm run mock 启动mock服务
-即可以localhost:3000/XXX 访问数据
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
