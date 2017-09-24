@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@import "../lib/ionic/scss/mixins";
+@import "../lib/ionic/scss/variables";
+@import 'sassCore/base'; //sassCore 库文件
+@import 'sassCore/core/mixin';
+@import "sassCore/ext/animate/fade";
+@import "sassCore/ext/animate/bounce";
+@import "sassCore/ext/animate/lightspeed";
+@import "sassCore/ext/animate/flip";
+@import "sassCore/ext/animate/special";
+@import 'base/variable';// 自定义网站基础变量设置z
+@import 'base/wap_mixin'; // 网站 trj 所用到的mixin集 分类
+@import 'base/base'; //网站基本的设置
+@import 'base/create_img';
+@import 'base/icons';
+@import 'base/button';
+@import 'page/common';
+@import 'page/login-register'; // 登录注册所用STYLE
+@import 'page/photo-swipe';//PhotoSwipe
+@import 'page/login';//登录页
+@import 'page/register'; //注册
+@import 'page/account';//个人账户
+@import 'page/_component';
+@import 'page/message';//消息中心
+@import 'page/myreward';//我的奖励
+@import 'page/detail';//项目详情
+@import 'page/about';//关于我们
+@import 'page/promote';//推广着落页
+@import 'page/thinksg'; //清明感恩回馈 采茶
+@import 'page/getredbag';//投资返现
+@import 'page/member';//会员中心
+@import 'page/header';//头部
+@import 'page/cash';//充值提现
+@import 'page/mayDay';//五一劳动节
+@import 'page/invest';//投资预约
+@import 'page/phoneget'; //投融家三重礼品落地页
+@import 'page/lcsicon'; //理财师
+@import 'page/investor';//理财师列表
+@import 'page/belcs'; //理财师
+@import 'page/financ'; //理财专员
+@import 'page/_popup.scss'; //弹框样式调整

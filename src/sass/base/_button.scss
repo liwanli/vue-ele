@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.button-common-btn{
+	@extend %display;
+	width:100%;
+	@include height(true, 3.66rem, 3.66rem);
+	@extend %textAlign;
+	color:#fff;
+	font-size:1.702rem;
+	border-radius:0.34rem;
+	border:none;
+
+	&.no-change,&.friends-orange{
+		filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);
+	    -ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=red,endcolorstr=blue,gradientType=0);/*IE8*/
+	    background:$orange; /* 一些不支持背景渐变的浏览器 */
+	    background:-moz-linear-gradient(top, #f8a916, #fa7409);
+	    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#f8a916), to(#fa7409));
+	    background:-o-linear-gradient(top, #f8a916, #fa7409);
+	}
+	&.no-bg{
+		color:#fe8320;		
+	}
+	&.orange-boder{
+		border:1px solid #fe8320;
+	}
+	&:disabled,
+	&.no-gray{
+		background:#ccc;
+		border-color:#ccc;
+	}
+	&:disabled{
+		color:#fff;
+	}
+	&.friends-orange{
+		width:70%;
+	}
+	&.friends-no-bg{
+		width:70%;
+		background:none;
+		color:#ff811c;
+		border:$border;
+		border-color:$orange;
+	}
+	&.btn-orange{
+		color:#fff;
+		&:disabled{
+			color:#fff;
+		}
+	}
+	&.send{
+		color:#fff;
+	}
+}
