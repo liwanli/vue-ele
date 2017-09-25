@@ -1,18 +1,27 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-import Hello from '@/components/Hello'
+import goods from '@/components/goods'
+import seller from '@/components/seller'
 import NotFoundComponent from '@/components/NotFoundComponent'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-const router = new Router({
-	//mode:'history',
-	routes: [
+const routes = [
 		{
 		  path: '/',
-		  name: 'Hello',
-		  component: Hello
+		  name: 'goods',
+		  component: goods
+		},
+		{
+		  path: '/goods',
+		  name: 'goods',
+		  component: goods
+		},
+		{
+		  path: '/seller',
+		  name: 'seller',
+		  component: seller
 		},
 		{
 		  path: '*',
@@ -20,7 +29,11 @@ const router = new Router({
 		  component: NotFoundComponent
 		}
 	]
+
+
+const router = new VueRouter({
+	//mode:'history',
+	routes 
 })
-console.log(router)
 //输出 router
 export default router;
