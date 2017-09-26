@@ -1,12 +1,12 @@
 <template>
-	<div>
-		NotFoundComponent
-	</div>
+  <div class="bar">
+      bar
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'seller',
+  name: 'bar',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

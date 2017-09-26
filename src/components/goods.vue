@@ -10,6 +10,14 @@
           <article id="article">
             <div class="article-inner">
               this is article!
+              <p>
+                  {{count}}
+                  <button @click="inc()">+</button>
+                  <button @click="dec()">-</button>
+              </p>
+              <ul>
+                <li v-for="(item,index) in articles">{{index}}{{item.title}}</li>
+              </ul>
             </div>
           </article>
         </div>
@@ -22,7 +30,17 @@ export default {
   name: 'goods',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: Object,
+      articles: Array(),
+      count:0
+    }
+  },
+  methods: {
+    inc () {
+      this.count++
+    },
+    dec () {
+      this.count--
     }
   },
   mounted: function() {
@@ -32,15 +50,10 @@ export default {
         },
         emulateJSON: true
     }).then(function(response) {
-      // 这里是处理正确的回调
-
-       // this.articles = response.data.subjects
-        // this.articles = response.data["subjects"] 也可以
-        console.log('response.data.subjects')
-
-    }, function(response) {
-        // 这里是处理错误的回调
-        console.log('response')
+        this.articles = response.data.subjects
+        console.log(this.articles)
+    }, function(error) {
+        console.log('error')
     });
   }
 }

@@ -1,39 +1,51 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 
-import goods from '@/components/goods'
-import seller from '@/components/seller'
-import NotFoundComponent from '@/components/NotFoundComponent'
 
+//使用路由服务
 Vue.use(VueRouter)
+Vue.use(VueResource);
 
 const routes = [
+
 		{
-		  path: '/',
-		  name: 'goods',
-		  component: goods
+			path: '/a',
+		  component: resolve => require(['@/components/goods.vue'],resolve),
+			alias: '/goods'
 		},
 		{
 		  path: '/goods',
 		  name: 'goods',
-		  component: goods
+		  component: resolve => require(['@/components/goods.vue'],resolve),
+		  children: [
+				{
+					path: '/bar',
+					name: 'bar',
+		  		component: resolve => require(['@/components/bar.vue'],resolve),
+				}
+		  ],
+		  meta: { requiresAuth: false }
 		},
 		{
 		  path: '/seller',
 		  name: 'seller',
-		  component: seller
+		  component: resolve => require(['@/components/seller.vue'],resolve),
+		  meta: { requiresAuth: true }
 		},
 		{
 		  path: '*',
 		  name: 'NotFoundComponent',
-		  component: NotFoundComponent
+		  component: resolve => require(['@/components/NotFoundComponent.vue'],resolve),
+		  meta: { requiresAuth: false }
 		}
 	]
 
 
 const router = new VueRouter({
-	//mode:'history',
-	routes 
+	mode:'history',
+	base: __dirname,
+	routes
 })
 //输出 router
 export default router;

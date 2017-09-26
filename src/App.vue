@@ -8,6 +8,13 @@
     <nav id="nav">
       <div class="nav-inner">
         I am nav !
+        <h1>Basic</h1>
+      <ul>
+        <li><router-link to="/">/</router-link></li>
+        <li><router-link to="/goods">/goods</router-link></li>
+        <li><router-link to="/seller">/seller</router-link></li>
+        <router-link tag="li" to="/bar">/bar</router-link>
+      </ul>
       </div>
     </nav>
     <div class="main">
