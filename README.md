@@ -21,7 +21,7 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
-项目结构
+```	项目结构
 .
 ├── README.md
 ├── dist  // 打包构建后的文件夹
@@ -47,3 +47,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │       ├── store.js  
 │       └── types.js  // vuex types
 └── webpack.config.js
+```
