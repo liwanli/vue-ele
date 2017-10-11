@@ -1,13 +1,12 @@
 <template>
   <div id="app">
-    <header id="header">
-      <div class="header-inner">
-        I am header!
-      </div>
-    </header>
-    <nav id="nav">
-      <div class="nav-inner">
-        I am nav !
+    <!-- header 头部内容 Star -->
+    <v-header></v-header>
+    <!-- header 头部内容 End -->
+    <!-- 切换菜单 Star -->
+    <nav id="tab">
+      <div class="tab-inner">
+        I am tab !
         <h1>Basic</h1>
       <ul>
         <li><router-link to="/">/</router-link></li>
@@ -17,6 +16,8 @@
       </ul>
       </div>
     </nav>
+    <!-- 切换菜单 End -->
+
     <div class="main">
       <div class="main-inner">
         <router-view></router-view>
@@ -31,18 +32,15 @@
 </template>
 
 <script>
+  import header from './components/header/header';
   export default {
-    name: 'app'
+    name: 'app',
+    components:{
+      'v-header' : header
+    }
   }
 </script>
 
 <style lang='stylus' rel="stylesheet/stylus">
-  *
-    padding:0
-    margin:0
-  header 
-    width:100%
-    height:268px
-    background:url('./assets/images/header_bg.jpg')
-    background-size: cover
+  @import 'common/stylus/common.styl'
 </style>

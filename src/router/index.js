@@ -10,14 +10,14 @@ Vue.use(VueResource);
 const routes = [
 
 		{
-			path: '/a',
-		  component: resolve => require(['@/components/goods.vue'],resolve),
-			alias: '/goods'
+			path: '/',
+			// redirect: '/goods',
+		  component: resolve => require(['@/components/goods/goods.vue'],resolve)
 		},
 		{
 		  path: '/goods',
 		  name: 'goods',
-		  component: resolve => require(['@/components/goods.vue'],resolve),
+		  component: resolve => require(['@/components/goods/goods.vue'],resolve),
 		  children: [
 				{
 					path: '/bar',
@@ -30,7 +30,7 @@ const routes = [
 		{
 		  path: '/seller',
 		  name: 'seller',
-		  component: resolve => require(['@/components/seller.vue'],resolve),
+		  component: resolve => require(['@/components/seller/seller.vue'],resolve),
 		  meta: { requiresAuth: true }
 		},
 		{
@@ -39,7 +39,7 @@ const routes = [
 		  component: resolve => require(['@/components/NotFoundComponent.vue'],resolve),
 		  meta: { requiresAuth: false }
 		}
-	]
+]
 
 
 const router = new VueRouter({

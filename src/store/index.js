@@ -3,13 +3,15 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
-    projects: []
+    count: 0
   },
   actions: {
 
   },
+  //
   mutations: {
-
+    increment: state => state.count++,
+    decrement: state => state.count--
   },
   getters: {
 
