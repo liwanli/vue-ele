@@ -1,9 +1,9 @@
 <template>
   <div id="header">
+    <div class="backgroundImg"><img src="http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg" width="100%" height="100%" alt=""></div>
     <div class="header-inner">
       I am header!
     </div>
-    <div class="header-backgroundImg"><img src="http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg" width="100%" height="100%" alt=""></div>
   </div>
 </template>
 
