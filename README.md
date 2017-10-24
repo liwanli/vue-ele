@@ -25,24 +25,31 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 .
 ├── README.md
 ├── dist  // 打包构建后的文件夹
+│   ├── static  //静态资源
+│   ├── index.html
 │   ├── build.js
 │   └── build.js.map
 ├── index.html
 ├── package.json
+├── resource  // 项目设计资源文件 
 ├── src
 │   ├── App.vue
 │   ├── assets
-│   │   ├── css.css
-│   │   ├── icon.css
+│   │   ├── fonts
+│   │   ├── images
 │   │   └── logo.png
 │   ├── constant
 │   │   └── api.js  // 配置api接口文件
+│   ├── components
+│   │   ├── goods		// 商品
+│   │   ├── header  // 头部
+│   │   ├── seller	// 
+│   │   └── NotFoundComponent.vue //错误页
 │   ├── http.js // 封装fetch、post请求及http 拦截器配置文件
-│   ├── index.vue
-│   ├── login.vue
 │   ├── main.js
 │   ├── repository.vue
-│   ├── router.js // 路由配置文件
+│   ├── router
+│   │   └── index.js // 路由配置文件
 │   └── store
 │       ├── store.js  
 │       └── types.js  // vuex types
