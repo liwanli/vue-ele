@@ -1,9 +1,22 @@
 <template>
-  <div class="header">
+  <div id="header">
     <div class="header-inner">
-      I am header!
       <div class="avatar">
         <img :src="seller.avatar" width="64" height="64" alt="logo">
+      </div>
+      <div class="content">
+        <div class="title">
+          <span class="brand"></span>
+          <span class="name">{{seller.name}}</span>
+        </div>
+        <div class="description">
+          {{seller.description}}/{{seller.deliveryTime}}分钟送达
+        </div>
+        <div class="support" v-if="seller.supports">
+          <!-- <span class="icon" :class="classMap[seller.supports[0].type]"></span> -->
+          <!-- {{seller.supports}} -->
+          <span class="text">{{seller.supports[0].description}}</span>
+        </div>
       </div>
     </div>
   </div>

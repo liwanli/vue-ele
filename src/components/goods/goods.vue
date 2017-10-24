@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-      <!-- <div class="goods">
+      <div class="goods">
         <div class="goods-inner">
           <aside id="aside">
             <div class="aside-inner">
@@ -21,7 +21,7 @@
             </div>
           </article>
         </div>
-      </div> -->
+      </div>
   </div>
 </template>
 
