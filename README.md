@@ -41,7 +41,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │   ├── constant
 │   │   └── api.js  // 配置api接口文件
 │   ├── components
-│   │   ├── goods		// 商品
+│   │   ├── goods   // 商品
 │   │   ├── header  // 头部
 │   │   ├── seller	// 
 │   │   └── NotFoundComponent.vue //错误页
