@@ -17,6 +17,14 @@
           <!-- {{seller.supports}} -->
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
+        <!-- <div class="supports-count" v-if="seller.supports" @click="showDetail">
+          <span class="count">{{seller.supports.length}}个</span>
+          <i class="icon iconfont icon-zuoyoujiantou"></i>
+        </div>
+        <div class="bulletin-wrapper" @click="showDetail">
+          <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+          <i class="icon iconfont icon-zuoyoujiantou"></i>
+        </div> -->
       </div>
     </div>
   </div>
