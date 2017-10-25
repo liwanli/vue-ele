@@ -7,10 +7,19 @@ import router from './router'
 // 引入公共css
 import '../static/css/reset.css'
 
+
 Vue.config.productionTip = false
 
 //开启debug模式
 Vue.config.debug = true;
+
+var fastclick = require('./common/js/fastclick');
+
+// filters 自定义过滤器
+var filters = require('./common/js/filters');
+
+fastclick.attach(document.body);
+
 
 
 //登录拦截
