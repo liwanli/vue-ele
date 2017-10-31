@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <!-- header 头部内容 Star -->
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <!-- header 头部内容 End -->
     <!-- 切换菜单 Star -->
-    <nav id="tab">
-      <div class="tab-inner">
+    <nav id="tab" class="border-1px">
+      <!-- <div class="tab-inner">
         I am tab !
         <h1>Basic</h1>
       <ul>
@@ -14,7 +14,7 @@
         <li><router-link to="/seller">/seller</router-link></li>
         <router-link tag="li" to="/bar">/bar</router-link>
       </ul>
-      </div>
+      </div> -->
     </nav>
     <!-- 切换菜单 End -->
 
@@ -35,6 +35,19 @@
   import header from './components/header/header';
   export default {
     name: 'app',
+    data() {
+      return {
+        seller: {}
+      }
+    },
+    created(){
+      this.$http.get('/api/seller').then((response)=>{
+        response = response.body;
+        if (response.error == 0) {
+          this.seller = response.data;
+        }
+      })
+    },
     components:{
       'v-header' : header
     }

@@ -1,8 +1,10 @@
 <template>
-  <div id="header">
-    <div class="backgroundImg"><img src="http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg" width="100%" height="100%" alt=""></div>
+  <div class="header">
     <div class="header-inner">
       I am header!
+      <div class="avatar">
+        <img :src="seller.avatar" width="64" height="64" alt="logo">
+      </div>
     </div>
   </div>
 </template>
@@ -10,6 +12,11 @@
 <script>
 export default {
   name: 'header',
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data () {
     return {
     }

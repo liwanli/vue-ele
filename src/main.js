@@ -16,7 +16,7 @@ Vue.config.debug = true;
 //登录拦截
 router.beforeEach((to, from, next) => {
 
- 	console.log(to.fullPath)
+ 	// console.log(to.fullPath)
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
     if (true) {
@@ -36,7 +36,7 @@ router.beforeEach((to, from, next) => {
 /* eslint-disable no-new */
 new Vue({
   // el: '#app'  //vue1.0的写法
-  store,
+  //store,
   router,
   template: '<App/>',
   //components: { App }   //vue1.0的写法

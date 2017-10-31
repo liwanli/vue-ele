@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-      <div class="goods">
+      <!-- <div class="goods">
         <div class="goods-inner">
           <aside id="aside">
             <div class="aside-inner">
@@ -21,7 +21,7 @@
             </div>
           </article>
         </div>
-      </div>
+      </div> -->
   </div>
 </template>
 
@@ -44,17 +44,17 @@ export default {
     }
   },
   mounted: function() {
-    this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
-        headers: {
+    // this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
+    //     headers: {
 
-        },
-        emulateJSON: true
-    }).then(function(response) {
-        this.articles = response.data.subjects
-        console.log(this.articles)
-    }, function(error) {
-        console.log('error')
-    });
+    //     },
+    //     emulateJSON: true
+    // }).then(function(response) {
+    //     this.articles = response.data.subjects
+    //     console.log(this.articles)
+    // }, function(error) {
+    //     console.log('error')
+    // });
   }
 }
 </script>
