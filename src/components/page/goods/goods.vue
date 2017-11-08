@@ -61,5 +61,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import '../../common/stylus/page/_goods.styl'
+  /*@import '../../../public/stylus/page/_goods.styl'*/
 </style>

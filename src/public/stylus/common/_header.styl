@@ -1,0 +1,116 @@
+@import "../base/_mixin.styl";
+#header
+  position relative
+  color: #fff
+  overflow hidden
+  background: rgba(7, 17, 27, 0.5)
+  .header-inner
+    position relative
+    padding rem(48) rem(24) rem(36) rem(48)
+    font-size 0
+    .backgroundImg
+      width 100%
+      height 100%
+      position absolute
+      top 0
+      left 0
+      z-index 0
+      // filter blur(rem(10))
+    .avatar
+      display inline-block
+      vertical-align top
+      img
+        width rem(128)
+        height rem(128)
+        border-radius rem(8)
+    .content
+      display inline-block
+      font-size rem(28)
+      margin-left rem(32)
+      .title
+        margin rem(4) 0 rem(16) 0
+        .brand
+          width rem(60)
+          height rem(36)
+          display inline-block;
+          bg-image('../../../assets/images/header/brand')
+          background-size rem(60) rem(36)
+          background-repeat no-repeat
+        .name
+          margin-left rem(12)
+          font-size rem(32)
+          line-height rem(36)
+          font-weight bold
+          vertical-align top
+      .description
+        margin-bottom rem(20)
+        line-height rem(24)
+        font-size rem(24)
+      .support
+        .icon
+          display inline-block
+          width rem(24)
+          height rem(24)
+          vertical-align top
+          margin-right rem(8)
+          background-size rem(24) rem(24)
+          background-repeat no-repeat
+          &.decrease
+            bg-image('../../../assets/images/header/decrease_1')
+          &.discount
+            bg-image('../../../assets/images/header/discount_1')
+          &.guarantee
+            bg-image('../../../assets/images/header/guarantee_1')
+          &.invoice
+            bg-image('../../../assets/images/header/invoice_1')
+          &.special
+            bg-image('../../../assets/images/header/special_1')
+        .text
+          line-height rem(24)
+          font-size rem(24)
+    .supports-count
+      padding 0 rem(28)
+      position absolute
+      right rem(24)
+      bottom rem(32)
+      height rem(48)
+      line-height rem(48)
+      border-radius rem(24)
+      background rgba(0, 0, 0, 0.2)
+      text-align center
+      font-size rem(20)
+      cursor pointer
+      .count
+        font-size rem(20)
+        vertical-align top
+      .icon
+        margin-left rem(4)
+        line-height rem(48)
+        font-size rem(20)
+  .bulletin-wrapper
+    position relative
+    background-color rgba(7, 17, 27, 0.2)
+    height rem(56)
+    line-height rem(56)
+    padding 0 rem(44) 0 rem(24)
+    white-space normal
+    overflow hidden
+    text-overflow ellipsis
+    .bulletin-title
+      display inline-block
+      vertical-align top
+      margin-top rem(16)
+      width rem(44)
+      height rem(24)
+      bg-image('../../../assets/images/header/bulletin')
+      background-size rem(44) rem(24)
+      background-repeat no-repeat
+    .bulletin-text
+      vertical-align top
+      margin 0 rem(8)
+      font-size rem(20)
+    .icon 
+      position absolute
+      font-size rem(40)
+      right rem(24)
+      top: 0

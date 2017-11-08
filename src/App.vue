@@ -5,7 +5,7 @@
     <!-- header 头部内容 End -->
     <!-- 切换菜单 Star -->
     <nav id="tab" class="border-1px">
-      <!-- <div class="tab-inner">
+      <div class="tab-inner">
         I am tab !
         <h1>Basic</h1>
       <ul>
@@ -14,7 +14,7 @@
         <li><router-link to="/seller">/seller</router-link></li>
         <router-link tag="li" to="/bar">/bar</router-link>
       </ul>
-      </div> -->
+      </div>
     </nav>
     <!-- 切换菜单 End -->
 
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-  import header from './components/header/header';
+  import header from './components/common/header/header';
   export default {
     name: 'app',
     data() {
@@ -55,5 +55,5 @@
 </script>
 
 <style lang='stylus' rel="stylesheet/stylus">
-  @import 'common/stylus/common.styl'
+  @import 'public/stylus/common.styl'
 </style>

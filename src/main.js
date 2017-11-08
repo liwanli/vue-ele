@@ -13,43 +13,26 @@ Vue.config.productionTip = false
 //开启debug模式
 Vue.config.debug = true;
 
-var fastclick = require('./common/js/fastclick');
-
-console.log(fastclick)
-
-// filters 自定义过滤器
-var filters = require('./common/js/filters');
-
+// import fastclick from 'fastclick'
+// import fastclick from './js/fastclick'
 // fastclick.attach(document.body);
 
+// filters 自定义过滤器
+//import filters from './common/js/filters';
+
+// Object.keys(filters).forEach(function(k) {
+//     Vue.filter(k, filters[k]);
+// });
 
 
-//登录拦截
-router.beforeEach((to, from, next) => {
-
-    // console.log(to.fullPath)
-
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        if (true) {
-            next({
-                path: '/login',
-                query: { redirect: to.fullPath }
-            })
-        } else {
-            next()
-        }
-    } else {
-        next() // 确保一定要调用 next()
-    }
-})
 
 
 /* eslint-disable no-new */
 new Vue({
-        // el: '#app'  //vue1.0的写法
-        //store,
+        el: '#app',  //vue1.0的写法
+        store,
         router,
         template: '<App/>',
-        //components: { App }   //vue1.0的写法
+        // components: { App }   //vue1.0的写法
         render: h => h(App) //vue2.0的写法
     }).$mount('#app') //vue2.0的写法
