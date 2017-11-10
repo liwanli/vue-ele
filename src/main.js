@@ -13,16 +13,16 @@ Vue.config.productionTip = false
 //开启debug模式
 Vue.config.debug = true;
 
-// import fastclick from 'fastclick'
+import fastclick from 'fastclick'
 // import fastclick from './js/fastclick'
-// fastclick.attach(document.body);
+fastclick.attach(document.body);
 
 // filters 自定义过滤器
-//import filters from './common/js/filters';
+import filters from './public/js/filters';
 
-// Object.keys(filters).forEach(function(k) {
-//     Vue.filter(k, filters[k]);
-// });
+Object.keys(filters).forEach(function(k) {
+    Vue.filter(k, filters[k]);
+});
 
 
 

@@ -10,11 +10,10 @@
           <span class="name">{{seller.name}}</span>
         </div>
         <div class="description">
-          {{classMap[0]}}   {{seller.supports[0].type}}
-          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           {{seller.description}}/{{seller.deliveryTime}}分钟送达
         </div>
         <div class="support" v-if="seller.supports">
+          <span class="icon" :class="classMap[seller.supports[0].type]"></span>
           <span class="text">{{seller.supports[0].description}}</span>
         </div>
       </div>
@@ -27,6 +26,24 @@
       <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
       <i class="icon iconfont icon-zuoyoujiantou"></i>
     </div>
+    <div class="backgroundImg">
+      <img :src="seller.avatar" alt="" width="100%" height="100%">
+    </div>
+    <transition name="fade">
+      <div v-show="detailShow" class="detail" @click="hideDetail" transition="fade">
+        <div class="detail-wrapper">
+          <div class="detail-inner">
+            <h1 class="name">{{seller.name}}</h1>
+          </div>
+          <div class="star-wrapper">
+            <div :size="48" :score="seller.score"></div>
+          </div>
+        </div>
+        <div class="detail-close" @click="hideDetail">
+          <i class="iconfont icon-cha"></i>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -40,15 +57,17 @@ export default {
   },
   data () {
     return {
-      detailShow: false
+      detailShow: false,
     }
   },
   methods: {
     showDetail(){
       this.detailShow = true;
+      document.body.style='overflow:hidden'
     },
     hideDetail(){
       this.detailShow = false;
+      document.body.style='overflow:auto'
     }
   },
   created() {
