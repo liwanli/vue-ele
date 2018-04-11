@@ -42,8 +42,9 @@ const routes = [
 
 
 const router = new VueRouter({
-	//mode:'history',
+	mode:'history',
 	base: __dirname,
+	linkActiveClass: 'active',
 	routes
 })
 //输出 router

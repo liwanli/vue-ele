@@ -1,38 +1,29 @@
 <template>
   <div id="app">
     <!-- header 头部内容 Star -->
-    <v-header :seller="seller"></v-header>
+    <v-header v-bind:seller="seller"></v-header>
     <!-- header 头部内容 End -->
     <!-- 切换菜单 Star -->
-    <nav id="tab" class="border-1px">
-      <div class="tab-inner">
-        I am tab !
-        <h1>Basic</h1>
-      <ul>
-        <li><router-link to="/">/</router-link></li>
-        <li><router-link to="/goods">/goods</router-link></li>
-        <li><router-link to="/seller">/seller</router-link></li>
-        <router-link tag="li" to="/bar">/bar</router-link>
-      </ul>
-      </div>
-    </nav>
-    <!-- 切换菜单 End -->
-
-    <div class="main">
-      <div class="main-inner">
-        <router-view></router-view>
-      </div>
+    <div class="tab border-1px">
+      <div class="tab-item"><router-link tag="a" to="/goods">商品</router-link></div>
+      <div class="tab-item"><router-link tag="a" to="/seller">评价</router-link></div>
+      <div class="tab-item"><router-link tag="a" to="/bar">商家</router-link></div>
     </div>
+    <!-- 切换菜单 End -->
+    <router-view></router-view>
+
     <footer id="footer">
       <div class="footer-inner">
-        I am footer!
+      
+
       </div>
     </footer>
   </div>
 </template>
 
 <script>
-  import header from './components/common/header/header';
+  import header from '@/components/common/header/header';
+  const ERR_OK = 0;
   export default {
     name: 'app',
     data() {
@@ -43,7 +34,7 @@
     created(){
       this.$http.get('/api/seller').then((response)=>{
         response = response.body;
-        if (response.error == 0) {
+        if (response.error == ERR_OK) {
           this.seller = response.data;
         }
       })
@@ -55,5 +46,25 @@
 </script>
 
 <style lang='stylus' rel="stylesheet/stylus">
-  @import 'public/stylus/common.styl'
+  @import '/public/stylus/common.styl'
+  #app
+    .tab
+      display flex
+      width 100%
+      align-item: center;
+      height rem(79)
+      line-height rem(79)
+      border-bottom rem(2) solid rgba(7,17,27,0.1)
+      .tab-item
+        flex: 1
+        justfiy-content: center;
+        text-align: center
+        a 
+          display: block
+          font-size rem(28)
+          text-decoration none
+          color: rgb( 77, 85, 93)
+        .active
+          color: rgb( 240, 20, 20)
+      
 </style>

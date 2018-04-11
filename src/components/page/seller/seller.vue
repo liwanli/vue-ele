@@ -30,5 +30,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  @import '../../../public/stylus/page/_seller.styl'
 </style>

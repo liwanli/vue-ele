@@ -7,7 +7,6 @@ import router from './router'
 // 引入公共css
 import '../static/css/reset.css'
 
-
 Vue.config.productionTip = false
 
 //开启debug模式
@@ -26,13 +25,12 @@ Object.keys(filters).forEach(function(k) {
 
 
 
-
 /* eslint-disable no-new */
 new Vue({
-        el: '#app',  //vue1.0的写法
-        store,
-        router,
-        template: '<App/>',
-        // components: { App }   //vue1.0的写法
-        render: h => h(App) //vue2.0的写法
-    }).$mount('#app') //vue2.0的写法
+	el: '#app',  //vue1.0的写法
+	store,
+	router,
+	template: '<App/>',
+	// components: { App }   //vue1.0的写法
+	render: h => h(App) //vue2.0的写法
+}).$mount('#app') //vue2.0的写法
