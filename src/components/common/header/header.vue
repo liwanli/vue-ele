@@ -106,7 +106,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus">
-@import "../../../public/stylus/base/_mixin.styl";
+@import "../../../public/stylus/_mixin.styl";
 
 #vheader
   position relative
@@ -115,46 +115,46 @@ export default {
   background: rgba(7, 17, 27, 0.5)
   .header-inner
     position relative
-    padding rem(48) rem(24) rem(36) rem(48)
+    padding 48px 24px 36px 48px
     font-size 0
     .avatar
       display inline-block
       vertical-align top
       img
-        width rem(128)
-        height rem(128)
-        border-radius rem(8)
+        width 128px
+        height 128px
+        border-radius 8px
     .content
       display inline-block
-      margin-left rem(32)
+      margin-left 32px
       .title
-        margin rem(4) 0 rem(16) 0
+        margin 4px 0 16px 0
         .brand
-          width rem(60)
-          height rem(36)
+          width 60px
+          height 36px
           display inline-block;
           bg-image('../../../assets/images/header/brand')
-          background-size rem(60) rem(36)
+          background-size 60px 36px
           background-repeat no-repeat
         .name
-          margin-left rem(12)
+          margin-left 12px
           font-size 100%
-          line-height rem(36)
+          line-height 36px
           font-weight bold
           vertical-align top
       .description
-        margin-bottom rem(20)
-        line-height rem(24)
-        font-size rem(24)
+        margin-bottom 20px
+        line-height 24px
+        font-size 24px
       .support
-        margin-bottom rem(4)
+        margin-bottom 4px
         .icon
           display inline-block
-          width rem(24)
-          height rem(24)
+          width 24px
+          height 24px
           vertical-align top
-          margin-right rem(8)
-          background-size rem(24) rem(24)
+          margin-right 8px
+          background-size 24px 24px
           background-repeat no-repeat
           &.decrease
             bg-image('../../../assets/images/header/decrease_1')
@@ -167,54 +167,54 @@ export default {
           &.special
             bg-image('../../../assets/images/header/special_1')
         .text
-          line-height rem(24)
-          font-size rem(24)
+          line-height 24px
+          font-size 24px
           vertical-align top
     .supports-count
-      padding 0 rem(28)
+      padding 0 28px
       position absolute
-      right rem(24)
-      bottom rem(32)
-      height rem(48)
-      line-height rem(48)
-      border-radius rem(24)
+      right 24px
+      bottom 32px
+      height 48px
+      line-height 48px
+      border-radius 24px
       background rgba(0, 0, 0, 0.2)
       text-align center
-      font-size rem(20)
+      font-size 20px
       cursor pointer
       .count
-        font-size rem(20)
+        font-size 20px
         vertical-align top
       .icon
-        margin-left rem(4)
-        line-height rem(48)
-        font-size rem(20)
+        margin-left 4px
+        line-height 48px
+        font-size 20px
   .bulletin-wrapper
     position relative
     background-color rgba(7, 17, 27, 0.2)
-    height rem(56)
-    line-height rem(56)
-    padding 0 rem(44) 0 rem(24)
-    white-space normal
+    height 56px
+    line-height 56px
+    padding 0 44px 0 24px
+    white-space nowrap
     overflow hidden
     text-overflow ellipsis
     .bulletin-title
       display inline-block
       vertical-align top
-      margin-top rem(16)
-      width rem(44)
-      height rem(24)
+      margin-top 16px
+      width 44px
+      height 24px
       bg-image('../../../assets/images/header/bulletin')
-      background-size rem(44) rem(24)
+      background-size 44px 24px
       background-repeat no-repeat
     .bulletin-text
       vertical-align top
-      margin 0 rem(8)
-      font-size rem(20)
+      margin 0 8px
+      font-size 20px
     .icon 
       position absolute
-      font-size rem(40)
-      right rem(24)
+      font-size 40px
+      right 24px
       top: 0
     .icon-keyboard_arrow_right {
       position: absolute;
@@ -229,7 +229,7 @@ export default {
     top 0
     left 0
     z-index -1
-    filter blur(rem(10))
+    filter blur(10px)
   .detail
     position fixed
     z-index 100
@@ -248,12 +248,12 @@ export default {
       width 100%
       min-height 100%
       .detail-inner
-        margin-top rem(128)
-        padding-bottom rem(128)
+        margin-top 128px
+        padding-bottom 128px
         .name
-          line-height rem(32)
+          line-height 32px
           text-align center
-          font-size rem(32)
+          font-size 32px
           font-weight 700px
       .star-wrapper
         margin-top 18px
@@ -313,9 +313,9 @@ export default {
       //      font-size 12px
     .detail-close
       position relative
-      width rem(62)
-      height rem(62)
-      margin rem(-128) auto 0 auto
+      width 62px
+      height 62px
+      margin -128px auto 0 auto
       clear both
-      font-size rem(62)
+      font-size 62px
 </style>

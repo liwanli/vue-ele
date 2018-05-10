@@ -45,23 +45,23 @@
   }
 </script>
 
-<style lang='stylus' rel="stylesheet/stylus">
-  @import '/public/stylus/common.styl'
+<style scoped lang='stylus' rel="stylesheet/stylus">
+  @import './public/stylus/_mixin.styl'
   #app
     .tab
       display flex
       width 100%
       align-item: center;
-      height rem(79)
-      line-height rem(79)
-      border-bottom rem(2) solid rgba(7,17,27,0.1)
+      height 79px
+      line-height 79px
+      border-bottom 2px solid rgba(7,17,27,0.1)
       .tab-item
         flex: 1
         justfiy-content: center;
         text-align: center
         a 
           display: block
-          font-size rem(28)
+          font-size 28px
           text-decoration none
           color: rgb( 77, 85, 93)
         .active

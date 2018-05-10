@@ -6,14 +6,19 @@ import router from './router'
 
 // 引入公共css
 import '../static/css/reset.css'
+import './public/stylus/_base.styl'
+import './public/stylus/_font.styl'
 
+// 引入公共js
+import './public/js/flexible.js'
+import fastclick from 'fastclick'
+
+//使用配置
 Vue.config.productionTip = false
-
 //开启debug模式
 Vue.config.debug = true;
 
-import fastclick from 'fastclick'
-// import fastclick from './js/fastclick'
+
 fastclick.attach(document.body);
 
 // filters 自定义过滤器

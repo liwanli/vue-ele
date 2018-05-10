@@ -21,7 +21,7 @@ const routes = [
 				{
 					path: '/bar',
 					name: 'bar',
-		  		component: resolve => require(['@/components/base/bar.vue'],resolve),
+		  		component: resolve => require(['@/components/common/bar/bar.vue'],resolve),
 				}
 		  ],
 		  meta: { requiresAuth: false }
@@ -35,7 +35,7 @@ const routes = [
 		{
 		  path: '*',
 		  name: 'NotFoundComponent',
-		  component: resolve => require(['@/components/base/NotFoundComponent.vue'],resolve),
+		  component: resolve => require(['@/components/common/notfound/NotFoundComponent.vue'],resolve),
 		  meta: { requiresAuth: false }
 		}
 ]

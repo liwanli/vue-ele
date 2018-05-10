@@ -1,7 +1,7 @@
 <template>
   <div id="goods">
     <div class="menu-wrapper">
-      <ul>
+      <ul class="menu-ul">
         <li v-for="item in goods" class="menu-item">
           <span class="text border-1px">
             <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
@@ -81,101 +81,104 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus" >
-  @import '../../../public/stylus/base/_mixin.styl'
+  @import '../../../public/stylus/_mixin.styl'
   #goods
     display flex
     position absolute
-    top rem(348)
-    bottom rem(92)
+    top 348px
+    bottom 92px
     width 100%
     overflow hidden
     .menu-wrapper
-      flex 0 0 rem(80*2)
-      width rem(80*2)
+      flex 0 0 160px
+      width 160px
       background: #f3f5f7
-      .menu-item
-        display:table
-        height: rem(54*2)
-        width: rem(56*2)
-        line-height rem(14*2)
-        padding: 0 rem(12*2)
-        .icon
-          display inline-block
-          vertical-align top
-          width rem(24)
-          height rem(24)
-          margin-right rem(8)
-          background-size rem(24) rem(24)
-          background-repeat no-repeat
-          &.decrease
-            bg-image('../../../assets/images/header/decrease_1')
-          &.discount
-            bg-image('../../../assets/images/header/discount_1')
-          &.guarantee
-            bg-image('../../../assets/images/header/guarantee_1')
-          &.invoice
-            bg-image('../../../assets/images/header/invoice_1')
-          &.special
-            bg-image('../../../assets/images/header/special_1')
-        .text
-          display: table-cell
-          width: rem(112)
-          vertical-align: middle
-          border-1px(rgba(7, 17, 27, 0.1))
-          font-size: rem(24)
+      .menu-ul
+        margin 0
+        padding 0
+        .menu-item
+          display:table
+          height: 108px
+          width: 112px
+          line-height 28px
+          padding: 0 24px
+          .icon
+            display inline-block
+            vertical-align top
+            width 24px
+            height 24px
+            margin-right 8px
+            background-size 24px 24px
+            background-repeat no-repeat
+            &.decrease
+              bg-image('../../../assets/images/header/decrease_1')
+            &.discount
+              bg-image('../../../assets/images/header/discount_1')
+            &.guarantee
+              bg-image('../../../assets/images/header/guarantee_1')
+            &.invoice
+              bg-image('../../../assets/images/header/invoice_1')
+            &.special
+              bg-image('../../../assets/images/header/special_1')
+      .text
+        display: table-cell
+        width: 112px
+        vertical-align: middle
+        border-1px(rgba(7, 17, 27, 0.1))
+        font-size: 24px
     .food-wrapper
       flex 1
       overflow hidden
       .title
-        padding-left rem(28)
-        height rem(52)
-        line-height rem(52)
-        border-left rem(4) solid #d9dde1
-        font-size rem(24)
+        padding-left 28px
+        height 52px
+        line-height 52px
+        border-left 4px solid #d9dde1
+        font-size 24px
         color rgb(147, 153, 159)
         background: #f3f5f7
       .food-item
         display: flex
-        margin: rem(36)
-        padding-bottom: rem(36)
+        margin: 36px
+        padding-bottom: 36px
         border-1px(rgba(7, 17, 27, 0.1))
         &:last-child
           border-none()
           margin-bottom: 0
         .icon
-          flex: 0 0 rem(114)
-          margin-right: rem(20)
+          flex: 0 0 114px
+          margin-right: 20px
         .content
           flex: 1
           .name
-            margin: rem(4) 0 rem(16) 0
-            height: rem(28)
-            line-height: rem(28)
-            font-size: rem(28)
+            margin: 4px 0 16px 0
+            height: 28px
+            line-height: 28px
+            font-size: 28px
             color: rgb(7, 17, 27)
           .desc, .extra
-            line-height: rem(20)
-            font-size: rem(20)
+            line-height: 20px
+            font-size: 20px
             color: rgb(147, 153, 159)
           .desc
-            line-height: rem(24)
-            margin-bottom: rem(16)
+            line-height: 24px
+            margin-bottom: 16px
           .extra
             .count
-              margin-right: rem(24)
+              margin-right: 24px
           .price
             font-weight: 700
-            line-height: rem(48)
+            line-height: 48px
             .now
-              margin-right: rem(16)
-              font-size: rem(28)
+              margin-right: 16px
+              font-size: 28px
               color: rgb(240, 20, 20)
             .old
               text-decoration: line-through
-              font-size: rem(20)
+              font-size: 20px
               color: rgb(147, 153, 159)
           .cartcontrol-wrapper
             position: absolute
             right: 0
-            bottom: rem(24)
+            bottom: 24px
 </style>

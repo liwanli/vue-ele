@@ -48,12 +48,12 @@
 	}
 </script>
 <style scope lang="stylus" rel="stylesheet/stylus" >
-	 @import "../../../public/stylus/base/_mixin.styl";
+	 @import "../../../public/stylus/_mixin.styl";
 	#cartcontrol
 		font-size: 0
 		.cart-decrease
 			display inline-block
-			padding: rem(12)
+			padding: 12px
 			transition: all 0.4s linear
       &.move-transition
 				opacity: 1
@@ -73,16 +73,16 @@
 		.cart-count
 			display inline-block
 			vertical-align: top
-			width: rem(24)
-			padding-top: rem(12)
-			line-height: rem(48)
+			width: 24px
+			padding-top: 12px
+			line-height: 48px
 			text-align: center
-			font-size: rem(20)
+			font-size: 20px
 			color: rgb(147, 153, 159)
 		.cart-add
 			display inline-block
-			padding: rem(12)
-			line-height: rem(48)
-			font-size: rem(48)
+			padding: 12px
+			line-height: 48px
+			font-size: 48px
 			color: rgb(0, 160, 220)
 </style>

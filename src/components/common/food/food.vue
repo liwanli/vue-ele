@@ -17,7 +17,7 @@
 	}
 </script>
 <style scoped lang="stylus" rel="stylesheet/stylus" >
-	 @import '../../../public/stylus/base/_mixin.styl'
+	 @import '../../../public/stylus/_mixin.styl'
 	#food
 		position: fixed
 		bottom: rem(96)
