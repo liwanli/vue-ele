@@ -34,35 +34,35 @@
         <div class="detail-wrapper">
           <div class="detail-inner">
             <h1 class="name">{{seller.name}}</h1>
-          </div>
-          <div class="star-wrapper">
-            <v-star :size="36" :score="seller.score"></v-star>
-          </div>
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">优惠信息</div>
-            <div class="line"></div>
-          </div>
-          <div class="supports" v-if="seller.supports">
-            <ul>
-              <li class="support-item" v-for="(item,index) in seller.supports" track-by>
-                <span class="icon" :class="classMap[seller.supports[index].type]"></span>
-                <span class="text">{{seller.supports[index].description}}</span>
-              </li>
+            <div class="star-wrapper">
+              <v-star :size="36" :score="seller.score"></v-star>
+            </div>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">优惠信息</div>
+              <div class="line"></div>
+            </div>
+            <div class="supports" v-if="seller.supports">
+              <ul>
+                <li class="support-item" v-for="(item,index) in seller.supports" track-by>
+                  <span class="icon" :class="classMap[seller.supports[index].type]"></span>
+                  <span class="text">{{seller.supports[index].description}}</span>
+                </li>
 
-            </ul>
-          </div>
-          <div class="title">
-            <div class="line"></div>
-            <div class="text">商家公告</div>
-            <div class="line"></div>
-          </div>
-          <div class="bulletin">
-            <p class="content">{{seller.bulletin}}</p>
+              </ul>
+            </div>
+            <div class="title">
+              <div class="line"></div>
+              <div class="text">商家公告</div>
+              <div class="line"></div>
+            </div>
+            <div class="bulletin">
+              <p class="content">{{seller.bulletin}}</p>
+            </div>
           </div>
         </div>
         <div class="detail-close" @click="hideDetail">
-          <i class="iconfont icon-cha"></i>
+          <i class="iconfont icon-close"></i>
         </div>
       </div>
     </transition>
@@ -94,11 +94,9 @@ export default {
   methods: {
     showDetail(){
       this.detailShow = true;
-      document.body.style='overflow:hidden'
     },
     hideDetail(){
       this.detailShow = false;
-      document.body.style='overflow:auto'
     }
   },
 }
@@ -248,74 +246,74 @@ export default {
       width 100%
       min-height 100%
       .detail-inner
-        margin-top 128px
-        padding-bottom 128px
+        margin-top: 128px
+        padding-bottom: 128px
         .name
-          line-height 32px
-          text-align center
           font-size 32px
-          font-weight 700px
-      .star-wrapper
-        margin-top 18px
-        padding 2px 0
-        text-align center
+          font-weight 700
+          text-align: center
+          color rgb(255,255,255)
+          line-height 32px
+        .star-wrapper
+          margin-top: 36px
+          padding: 4px 0
+          text-align: center
         .title
           width 80%
           display flex
-          margin 28px auto 0 auto
+          margin: 56px auto 48px auto
           .line
             flex: 1
             position relative
-            top -6px
-            border-bottom 1px solid rgba(255, 255, 255, 0.2)
+            top -12px
+            border-bottom 2px solid rgba(255, 255, 255, 0.2)
           .text
-            padding 0px 12px
-            font-size 16px
-            font-weight 700px
-      //   .supports
-      //     width 80%
-      //     margin 22px auto
-      //     .support-item
-      //       padding 0 12px
-      //       font-size 0px
-      //       margin-bottom 12px
-      //       &:last-child
-      //         margin-bottom 0px
-      //       .icon
-      //         display inline-block
-      //         width 16px
-      //         height 16px
-      //         vertical-align top
-      //         margin-right 6px
-      //         background-size 16px 16px
-      //         background-repeat no-repeat
-      //         &.decrease
-      //          bg-image('../../../assets/images/header/decrease_2')
-      //         &.discount
-      //           bg-image('../../../assets/images/header/discount_2')
-      //         &.guarantee
-      //           bg-image('../../../assets/images/header/guarantee_2')
-      //         &.invoice
-      //           bg-image('../../../assets/images/header/invoice_2')
-      //         &.special
-      //           bg-image('../../../assets/images/header/special_2')
-      //       .text
-      //         line-height 12px
-      //         font-size 12px
-      //         color #ffffff
-      //   .bulletin
-      //     width 80%
-      //     height 200px
-      //     margin 22px auto
-      //     .content
-      //      padding 0 12px
-      //      line-height 24px
-      //      font-size 12px
+            padding: 0 24px
+            font-weight: 700
+            font-size: 28px
+        .supports
+          width 80%
+          margin 44px auto
+          .support-item
+            padding 0 24px
+            font-size 0px
+            margin-bottom 24px
+            &:last-child
+              margin-bottom 0px
+            .icon
+              display inline-block
+              width 32px
+              height 32px
+              vertical-align top
+              margin-right 12px
+              background-size 32px 32px
+              background-repeat no-repeat
+              &.decrease
+               bg-image('../../../assets/images/header/decrease_2')
+              &.discount
+                bg-image('../../../assets/images/header/discount_2')
+              &.guarantee
+                bg-image('../../../assets/images/header/guarantee_2')
+              &.invoice
+                bg-image('../../../assets/images/header/invoice_2')
+              &.special
+                bg-image('../../../assets/images/header/special_2')
+            .text
+              line-height 24px
+              font-size 24px
+              color #ffffff
+        .bulletin
+          width: 80%
+          margin: 0 auto
+          .content
+            padding: 0 24px
+            line-height: 48px
+            font-size: 24px
     .detail-close
-      position relative
-      width 62px
-      height 62px
-      margin -128px auto 0 auto
-      clear both
-      font-size 62px
+      position: relative
+      width: 64px
+      height: 64px
+      margin: 32px auto 0 auto
+      clear: both
+      font-size: 64px
 </style>

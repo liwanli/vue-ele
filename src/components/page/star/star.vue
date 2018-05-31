@@ -60,10 +60,10 @@ export default {
       background-repeat: no-repeat
     &.star-48
       .star-item
-        width: rem(40)
-        height: rem(40)
-        margin-right: rem(44)
-        background-size: rem(40) rem(40)
+        width: 40px
+        height: 40px
+        margin-right: 44px
+        background-size: 40px 40px
         &:last-child
           margin-right: 0
         &.on
@@ -74,10 +74,10 @@ export default {
           bg-image('../../../assets/images/star/star48_off')
     &.star-36
       .star-item
-        width: rem(30)
-        height: rem(30)
-        margin-right: rem(12)
-        background-size: rem(30) rem(30)
+        width: 30px
+        height: 30px
+        margin-right: 12px
+        background-size: 30px 30px
         &:last-child
           margin-right: 0
         &.on
@@ -88,10 +88,10 @@ export default {
           bg-image('../../../assets/images/star/star36_off')
     &.star-24
       .star-item
-        width: rem(20)
-        height: rem(20)
-        margin-right: rem(6)
-        background-size: rem(20) rem(20)
+        width: 20px
+        height: 20px
+        margin-right: 6px
+        background-size: 20px 20px
         &:last-child
           margin-right: 0
         &.on

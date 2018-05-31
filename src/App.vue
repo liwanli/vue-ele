@@ -12,17 +12,19 @@
     <!-- 切换菜单 End -->
     <router-view></router-view>
 
-    <footer id="footer">
+  <!--   <footer id="footer">
       <div class="footer-inner">
       
 
-      </div>
+      </div> -->
     </footer>
   </div>
 </template>
 
 <script>
   import header from '@/components/common/header/header';
+  import BScroll from 'better-scroll';
+
   const ERR_OK = 0;
   export default {
     name: 'app',
@@ -37,7 +39,7 @@
         if (response.error == ERR_OK) {
           this.seller = response.data;
         }
-      })
+      });
     },
     components:{
       'v-header' : header
