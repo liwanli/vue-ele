@@ -36,7 +36,7 @@
           <ratingselect @select="selectRating" @toggle="toggleContent" :select-type="selectType" :desc="desc" :ratings="food.ratings" :only-content="onlyContent"></ratingselect>
           <div class="rating-wrapper">
             <ul v-show="food.ratings && food.ratings.length">
-              <li class="rating-item border-1px" v-show="needShow(rating.rateType,rating.text)"  v-for="rating in food.ratings">
+              <li class="rating-item border-1px" v-show="needShow(rating.rateType,rating.text)"  v-for="rating in food.ratings" v-bind:key="rating.username">
                 <div class="user">
                   <span class="name">{{rating.username}}</span>
                   <img class="avatar" width="12" height="12" :src="rating.avatar">
@@ -46,8 +46,8 @@
                   <span :class="{'icon-thumb_up':rating.rateType===0,'icon-thumb_down':rating.rateType===1}"></span>{{rating.text}}
                 </p>
               </li>
-              <!-- <li class="rating-item border-1px" v-show="needShow(rating.rateType,rating.text)"  v-for="rating in food.ratings">暂无评论 -->
-              </li>
+              <!-- <li class="rating-item border-1px" v-show="needShow(rating.rateType,rating.text)"  v-for="rating in food.ratings">暂无评论 
+              </li>-->
             </ul>
             <div class="no-rating" v-show="!food.ratings || !food.ratings.length">暂无评论</div>
           </div>
