@@ -149,9 +149,10 @@
       position: fixed
       left: 0
       top: 0
-      bottom: 48px
+      bottom: 0
       z-index: 30
       width: 100%
+      overflow hidden
       background: #fff
       &.slide-fade-enter-active,&.slide-fade-leave-active {
         transition: all 0.2s linear
@@ -249,6 +250,7 @@
           color: rgb(77, 85, 93)
       .rating
         padding-top: 36px
+        padding-bottom 96px
         .title
           line-height: 28px;
           margin-left: 36px;

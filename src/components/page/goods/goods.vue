@@ -42,50 +42,60 @@
         </li>
       </ul>
     </div>
-    <!--  ref="shopcart" :selectFoods="selectedFood" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice" -->
-    <shopcart ref="shopcart"></shopcart>
+    <shopcart ref="shopcart" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"  :selectFoods="selectFoods"></shopcart>
     <food :food="selectedFood" @addshop="addFood" ref="food"></food>
   </div>
 </template>
 
 <script>
-import BScroll from 'better-scroll';
-import shopcart from '@/components/page/shopcart/shopcart';
-import cartcontrol from '@/components/common/cartcontrol/cartcontrol'
-import food from '@/components/page/food/food';
+import BScroll from "better-scroll";
+import shopcart from "@/components/common/shopcart/shopcart";
+import cartcontrol from "@/components/common/cartcontrol/cartcontrol";
+import food from "@/components/page/food/food";
 
 const ERR_OK = 0;
 export default {
-  name: 'goods',
-  data () {
+  name: "goods",
+  data() {
     return {
       goods: [],
-      listHeight:[],
+      listHeight: [],
       scrollY: 0,
       selectedFood: {}
-    }
+    };
   },
   props: {
     seller: {
       type: Object
     }
   },
-  created () {
-    this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
-    this.$http.get('/api/goods').then((response) => {
+  created() {
+    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
+    this.$http.get("/api/goods").then(response => {
       response = response.body;
-      if (response.error==ERR_OK) {
+      if (response.error == ERR_OK) {
         this.goods = response.data;
-        this.$nextTick(function(){
+        this.$nextTick(function() {
           this._initScroll();
           //this._calculateHeight();
-        })
+        });
       }
     });
   },
   computed: {
     currentIndex() {
       return 0;
+    },
+    selectFoods() {
+      let foods = [];
+      this.goods.forEach(good => {
+        good.foods.forEach(food => {
+          if (food.count) {
+            foods.push(food);
+          }
+        });
+      });
+      return foods;
     }
   },
   methods: {
@@ -93,7 +103,9 @@ export default {
       if (!event._constructed) {
         return;
       }
-      let foodList = this.$refs.foodsWrapper.getElementsByClassName('food-list-hook');
+      let foodList = this.$refs.foodsWrapper.getElementsByClassName(
+        "food-list-hook"
+      );
       let el = foodList[index];
       this.foodsScroll.scrollToElement(el, 300);
     },
@@ -105,7 +117,8 @@ export default {
       this.$refs.food.show();
     },
     addFood(target) {
-      this._drop(target);
+      console.log('addfood')
+      //this._drop(target);
     },
     _drop(target) {
       // 体验优化,异步执行下落动画
@@ -121,128 +134,176 @@ export default {
         click: true,
         probeType: 3
       });
-
-      // this.foodsScroll.on('scroll', (pos) => {
-      //   this.scrollY = Math.abs(Math.round(pos.y));
-      // });
-      }
+    }
   },
-  mounted: function() {
-  },
+  mounted: function() {},
   components: {
     cartcontrol,
     shopcart,
     food
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="stylus" rel="stylesheet/stylus" >
-  @import '../../../public/stylus/_mixin.styl'
-  #goods
-    display flex
-    position absolute
-    top 348px
-    bottom 92px
-    width 100%
-    overflow hidden
-    .menu-wrapper
-      flex 0 0 160px
-      width 160px
-      background: #f3f5f7
-      .menu-ul
-        margin 0
-        padding 0
-        .menu-item
-          display:table
-          height: 108px
-          width: 112px
-          line-height 28px
-          padding: 0 24px
-          &.current
-            position: relative
-            z-index: 10
-            margin-top: -2px
-            background: #fff
-            font-weight: 700
-          .icon
-            display inline-block
-            vertical-align top
-            width 24px
-            height 24px
-            margin-right 8px
-            background-size 24px 24px
-            background-repeat no-repeat
-            &.decrease
-              bg-image('../../../assets/images/header/decrease_1')
-            &.discount
-              bg-image('../../../assets/images/header/discount_1')
-            &.guarantee
-              bg-image('../../../assets/images/header/guarantee_1')
-            &.invoice
-              bg-image('../../../assets/images/header/invoice_1')
-            &.special
-              bg-image('../../../assets/images/header/special_1')
-      .text
-        display: table-cell
-        width: 112px
-        vertical-align: middle
-        border-1px(rgba(7, 17, 27, 0.1))
-        font-size: 24px
-    .food-wrapper
-      flex 1
-      overflow hidden
-      .title
-        padding-left 28px
-        height 52px
-        line-height 52px
-        border-left 4px solid #d9dde1
-        font-size 24px
-        color rgb(147, 153, 159)
-        background: #f3f5f7
-      .food-item
-        display: flex
-        margin: 36px
-        padding-bottom: 36px
-        border-1px(rgba(7, 17, 27, 0.1))
-        &:last-child
-          border-none()
-          margin-bottom: 0
-        .icon
-          flex: 0 0 114px
-          margin-right: 20px
-        .content
-          flex: 1
-          .name
-            margin: 4px 0 16px 0
-            height: 28px
-            line-height: 28px
-            font-size: 28px
-            color: rgb(7, 17, 27)
-          .desc, .extra
-            line-height: 20px
-            font-size: 20px
-            color: rgb(147, 153, 159)
-          .desc
-            line-height: 24px
-            margin-bottom: 16px
-          .extra
-            .count
-              margin-right: 24px
-          .price
-            font-weight: 700
-            line-height: 48px
-            .now
-              margin-right: 16px
-              font-size: 28px
-              color: rgb(240, 20, 20)
-            .old
-              text-decoration: line-through
-              font-size: 20px
-              color: rgb(147, 153, 159)
-          .cartcontrol-wrapper
-            position: absolute
-            right: 0
-            bottom: 24px
+@import '../../../public/stylus/_mixin.styl';
+
+#goods {
+  display: flex;
+  position: absolute;
+  top: 348px;
+  bottom: 92px;
+  width: 100%;
+  overflow: hidden;
+
+  .menu-wrapper {
+    flex: 0 0 160px;
+    width: 160px;
+    background: #f3f5f7;
+
+    .menu-ul {
+      margin: 0;
+      padding: 0;
+
+      .menu-item {
+        display: table;
+        height: 108px;
+        width: 112px;
+        line-height: 28px;
+        padding: 0 24px;
+
+        &.current {
+          position: relative;
+          z-index: 10;
+          margin-top: -2px;
+          background: #fff;
+          font-weight: 700;
+        }
+
+        .icon {
+          display: inline-block;
+          vertical-align: top;
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+          background-size: 24px 24px;
+          background-repeat: no-repeat;
+
+          &.decrease {
+            bg-image('../../../assets/images/header/decrease_1');
+          }
+
+          &.discount {
+            bg-image('../../../assets/images/header/discount_1');
+          }
+
+          &.guarantee {
+            bg-image('../../../assets/images/header/guarantee_1');
+          }
+
+          &.invoice {
+            bg-image('../../../assets/images/header/invoice_1');
+          }
+
+          &.special {
+            bg-image('../../../assets/images/header/special_1');
+          }
+        }
+      }
+    }
+
+    .text {
+      display: table-cell;
+      width: 112px;
+      vertical-align: middle;
+      border-1px(rgba(7, 17, 27, 0.1));
+      font-size: 24px;
+    }
+  }
+
+  .food-wrapper {
+    flex: 1;
+    overflow: hidden;
+
+    .title {
+      padding-left: 28px;
+      height: 52px;
+      line-height: 52px;
+      border-left: 4px solid #d9dde1;
+      font-size: 24px;
+      color: rgb(147, 153, 159);
+      background: #f3f5f7;
+    }
+
+    .food-item {
+      display: flex;
+      margin: 36px;
+      padding-bottom: 36px;
+      border-1px(rgba(7, 17, 27, 0.1));
+
+      &:last-child {
+        border-none();
+        margin-bottom: 0;
+      }
+
+      .icon {
+        flex: 0 0 114px;
+        margin-right: 20px;
+      }
+
+      .content {
+        flex: 1;
+
+        .name {
+          margin: 4px 0 16px 0;
+          height: 28px;
+          line-height: 28px;
+          font-size: 28px;
+          color: rgb(7, 17, 27);
+        }
+
+        .desc, .extra {
+          line-height: 20px;
+          font-size: 20px;
+          color: rgb(147, 153, 159);
+        }
+
+        .desc {
+          line-height: 24px;
+          margin-bottom: 16px;
+        }
+
+        .extra {
+          .count {
+            margin-right: 24px;
+          }
+        }
+
+        .price {
+          font-weight: 700;
+          line-height: 48px;
+
+          .now {
+            margin-right: 16px;
+            font-size: 28px;
+            color: rgb(240, 20, 20);
+          }
+
+          .old {
+            text-decoration: line-through;
+            font-size: 20px;
+            color: rgb(147, 153, 159);
+          }
+        }
+
+        .cartcontrol-wrapper {
+          position: absolute;
+          right: 0;
+          bottom: 24px;
+        }
+      }
+    }
+  }
+}
 </style>

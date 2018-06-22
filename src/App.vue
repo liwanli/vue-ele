@@ -6,11 +6,11 @@
     <!-- 切换菜单 Star -->
     <div class="tab border-1px">
       <div class="tab-item"><router-link tag="a" to="/goods">商品</router-link></div>
-      <div class="tab-item"><router-link tag="a" to="/seller">评价</router-link></div>
-      <div class="tab-item"><router-link tag="a" to="/bar">商家</router-link></div>
+      <div class="tab-item"><router-link tag="a" to="/ratings">评价</router-link></div>
+      <div class="tab-item"><router-link tag="a" to="/seller">商家</router-link></div>
     </div>
     <!-- 切换菜单 End -->
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
 
   <!--   <footer id="footer">
       <div class="footer-inner">

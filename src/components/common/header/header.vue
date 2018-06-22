@@ -70,7 +70,7 @@
 </template>
 
 <script>
-import star from '@/components/page/star/star.vue';
+import star from '@/components/common/star/star.vue';
 export default {
   name: 'vheader',
   props: {
