@@ -10,13 +10,7 @@
       <div class="tab-item"><router-link tag="a" to="/seller">商家</router-link></div>
     </div>
     <!-- 切换菜单 End -->
-    <router-view :seller="seller"></router-view>
-
-  <!--   <footer id="footer">
-      <div class="footer-inner">
-      
-
-      </div> -->
+    <router-view :seller="seller" :goods="goods" :ratings="ratings"></router-view>
     </footer>
   </div>
 </template>
@@ -30,7 +24,9 @@
     name: 'app',
     data() {
       return {
-        seller: {}
+        seller: {},
+        goods: {},
+        ratings: {}
       }
     },
     created(){
@@ -38,6 +34,18 @@
         response = response.body;
         if (response.error == ERR_OK) {
           this.seller = response.data;
+        }
+      });
+      this.$http.get("/api/goods").then(response => {
+        response = response.body;
+        if (response.error == ERR_OK) {
+          this.goods = response.data;
+        }
+      });
+      this.$http.get('/api/ratings').then((response) => {
+        response = response.body;
+        if (response.error === ERR_OK) {
+          this.ratings = response.data;
         }
       });
     },

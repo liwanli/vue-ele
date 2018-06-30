@@ -58,7 +58,6 @@ export default {
   name: "goods",
   data() {
     return {
-      goods: [],
       listHeight: [],
       scrollY: 0,
       selectedFood: {}
@@ -67,35 +66,9 @@ export default {
   props: {
     seller: {
       type: Object
-    }
-  },
-  created() {
-    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
-    this.$http.get("/api/goods").then(response => {
-      response = response.body;
-      if (response.error == ERR_OK) {
-        this.goods = response.data;
-        this.$nextTick(function() {
-          this._initScroll();
-          //this._calculateHeight();
-        });
-      }
-    });
-  },
-  computed: {
-    currentIndex() {
-      return 0;
     },
-    selectFoods() {
-      let foods = [];
-      this.goods.forEach(good => {
-        good.foods.forEach(food => {
-          if (food.count) {
-            foods.push(food);
-          }
-        });
-      });
-      return foods;
+    goods: {
+      type: Array
     }
   },
   methods: {
@@ -110,6 +83,7 @@ export default {
       this.foodsScroll.scrollToElement(el, 300);
     },
     selectFood(food, event) {
+      console.log(event)
       if (!event._constructed) {
         return;
       }
@@ -136,7 +110,28 @@ export default {
       });
     }
   },
-  mounted: function() {},
+  created() {
+    this.classMap = ["decrease", "discount", "special", "invoice", "guarantee"];
+  },
+  computed: {
+    currentIndex() {
+      return 0;
+    },
+    selectFoods() {
+      let foods = [];
+      this.goods.forEach(good => {
+        good.foods.forEach(food => {
+          if (food.count) {
+            foods.push(food);
+          }
+        });
+      });
+      return foods;
+    }
+  },
+  mounted: function() {
+    this._initScroll();
+  },
   components: {
     cartcontrol,
     shopcart,

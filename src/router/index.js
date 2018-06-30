@@ -27,7 +27,17 @@ const routes = [{
         path: '/seller',
         name: 'seller',
         component: resolve => require(['@/components/page/seller/seller.vue'], resolve),
-        meta: { requiresAuth: true }
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/ratings',
+        name: 'ratings',
+        component: resolve => require(['@/components/page/ratings/ratings.vue'], resolve),
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: '*',

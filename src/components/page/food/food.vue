@@ -146,159 +146,159 @@
 <style scoped lang="stylus" rel="stylesheet/stylus" >
   @import '../../../public/stylus/_mixin.styl'
     #food
-      position: fixed
-      left: 0
-      top: 0
-      bottom: 0
-      z-index: 30
-      width: 100%
+      position fixed
+      left 0
+      top 0
+      bottom 0
+      z-index 30
+      width 100%
       overflow hidden
-      background: #fff
+      background #fff
       &.slide-fade-enter-active,&.slide-fade-leave-active {
-        transition: all 0.2s linear
-        transform: translate3d(0, 0, 0)
+        transition all 0.2s linear
+        transform translate3d(0, 0, 0)
       }
       &.slide-fade-enter, &.slide-fade-leave-to{
-        transform: translate3d(100%, 0, 0)
+        transform translate3d(100%, 0, 0)
       }
       &.buy-enter-active .buy, &.buy-leave-active .buy
-        transition: all 0.2s
-        opacity: 1
+        transition all 0.2s
+        opacity 1
       &.buy-enter .buy, &.buy-leave-to .buy
-        opacity: 0
+        opacity 0
 
       .image-header
-        position: relative
-        width: 100%
-        height: 0
-        padding-top: 100%
+        position relative
+        width 100%
+        height 0
+        padding-top 100%
         img
-          position: absolute
-          top: 0
-          left: 0
-          width: 100%
-          height: 100%
+          position absolute
+          top 0
+          left 0
+          width 100%
+          height 100%
         .back
-          position: absolute
-          top: 20px
-          left: 0
+          position absolute
+          top 20px
+          left 0
           .icon-arrow_lift
-            display: block
-            padding: 20px
-            font-size: 40px
-            color: #fff
-            position: relative
-            padding: 18px
+            display block
+            padding 20px
+            font-size 40px
+            color #fff
+            position relative
+            padding 18px
       .content
-        position: relative
-        padding: 36px
+        position relative
+        padding 36px
         .title
-          line-height: 28px
-          margin-bottom: 16px
-          font-size: 28px
-          font-weight: 700
-          color: rgb(7, 17, 27)
+          line-height 28px
+          margin-bottom 16px
+          font-size 28px
+          font-weight 700
+          color rgb(7, 17, 27)
         .detail
-          margin-bottom: 36px
-          line-height: 20px
-          font-size: 0
+          margin-bottom 36px
+          line-height 20px
+          font-size 0
           .sell-count, .rating
-            font-size: 20px
-            color: rgb(147, 153, 159)
+            font-size 20px
+            color rgb(147, 153, 159)
             line-height 1
           .sell-count
-            margin-right: 24px
+            margin-right 24px
         .price
-          font-weight: 700
-          line-height: 48px
+          font-weight 700
+          line-height 48px
           .now
-            margin-right: 16px
-            font-size: 28px
-            color: rgb(240, 20, 20)
+            margin-right 16px
+            font-size 28px
+            color rgb(240, 20, 20)
           .old
-            text-decoration: line-through
-            font-size: 20px
-            color: rgb(147, 153, 159)
+            text-decoration line-through
+            font-size 20px
+            color rgb(147, 153, 159)
         .cartcontrol-wrapper
-          position: absolute
-          right: 24px
-          bottom: 24px
+          position absolute
+          right 24px
+          bottom 24px
         .buy
-          position: absolute
-          right: 36px
-          bottom: 36px
-          z-index: 10
-          height: 48px
-          line-height: 48px
-          padding: 0 24px
-          box-sizing: border-box
-          border-radius: 24px
-          font-size: 20px
-          color: #fff
-          background: rgb(0, 160, 220)
+          position absolute
+          right 36px
+          bottom 36px
+          z-index 10
+          height 48px
+          line-height 48px
+          padding 0 24px
+          box-sizing border-box
+          border-radius 24px
+          font-size 20px
+          color #fff
+          background rgb(0, 160, 220)
       .info
-        padding: 36px
+        padding 36px
         .title
-          line-height: 28px
-          margin-bottom: 12px
-          font-size: 28px
-          color: rgb(7, 17, 27)
+          line-height 28px
+          margin-bottom 12px
+          font-size 28px
+          color rgb(7, 17, 27)
         .text
-          line-height: 48px
-          padding: 0 16px
-          font-size: 24px
-          color: rgb(77, 85, 93)
+          line-height 48px
+          padding 0 16px
+          font-size 24px
+          color rgb(77, 85, 93)
       .rating
-        padding-top: 36px
+        padding-top 36px
         padding-bottom 96px
         .title
-          line-height: 28px;
-          margin-left: 36px;
-          font-size: 28px;
-          color: #07111b;
+          line-height 28px;
+          margin-left 36px;
+          font-size 28px;
+          color #07111b;
       .rating-wrapper
-        padding: 0 36px
+        padding 0 36px
         .rating-item
-          position: relative
-          padding: 32px 0
-          list-style-type: none
+          position relative
+          padding 32px 0
+          list-style-type none
           border-1px(rgba(7, 17, 27, 0.1))
           .user
-            position: absolute
-            right: 0
-            top: 32px
-            line-height: 24px
-            font-size: 0
+            position absolute
+            right 0
+            top 32px
+            line-height 24px
+            font-size 0
             .name
-              display: inline-block
-              margin-right: 12px
-              vertical-align: top
-              font-size: 20px
-              color: rgb(147, 153, 159)
+              display inline-block
+              margin-right 12px
+              vertical-align top
+              font-size 20px
+              color rgb(147, 153, 159)
             .avatar
-              border-radius: 50%
+              border-radius 50%
           .time
-            margin-bottom: 12px
-            line-height: 24px
-            font-size: 20px
-            color: rgb(147, 153, 159)
+            margin-bottom 12px
+            line-height 24px
+            font-size 20px
+            color rgb(147, 153, 159)
           .text
-            line-height: 32px
-            font-size: 24px
-            color: rgb(7, 17, 27)
+            line-height 32px
+            font-size 24px
+            color rgb(7, 17, 27)
             .icon-thumb_up, .icon-thumb_down
-              margin-right: 8px
-              line-height: 32px
-              font-size: 24px
+              margin-right 8px
+              line-height 32px
+              font-size 24px
             .icon-thumb_up
-              color: rgb(0, 160, 220)
+              color rgb(0, 160, 220)
             .icon-thumb_down
-              color: rgb(147, 153, 159)
+              color rgb(147, 153, 159)
 
         .no-rating
-          padding: 32px 0
-          font-size: 24px
+          padding 32px 0
+          font-size 24px
           list-style-type none
-          color: rgb(147, 153, 159)
+          color rgb(147, 153, 159)
 
 </style>
