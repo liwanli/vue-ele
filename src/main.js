@@ -6,39 +6,36 @@ import router from './router'
 
 // 引入公共css
 import '../static/css/reset.css'
+import './public/stylus/_base.styl'
+import './public/stylus/_font.styl'
 
+// 引入公共js
+import './public/js/flexible.js'
+import fastclick from 'fastclick'
+
+//使用配置
 Vue.config.productionTip = false
-
 //开启debug模式
 Vue.config.debug = true;
 
 
-//登录拦截
-router.beforeEach((to, from, next) => {
+fastclick.attach(document.body);
 
- 	// console.log(to.fullPath)
+// filters 自定义过滤器
+import filters from './public/js/filters';
 
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (true) {
-      next({
-        path: '/login',
-        query: { redirect: to.fullPath }
-      })
-    } else {
-      next()
-    }
-  } else {
-    next() // 确保一定要调用 next()
-  }
-})
+Object.keys(filters).forEach(function(k) {
+    Vue.filter(k, filters[k]);
+});
+
 
 
 /* eslint-disable no-new */
 new Vue({
-  // el: '#app'  //vue1.0的写法
-  //store,
-  router,
-  template: '<App/>',
-  //components: { App }   //vue1.0的写法
-  render: h => h(App)     //vue2.0的写法
-}).$mount('#app')   //vue2.0的写法
+	el: '#app',  //vue1.0的写法
+	store,
+	router,
+	template: '<App/>',
+	// components: { App }   //vue1.0的写法
+	render: h => h(App) //vue2.0的写法
+}).$mount('#app') //vue2.0的写法
