@@ -91,8 +91,7 @@ export default {
       this.$refs.food.show();
     },
     addFood(target) {
-      console.log('addfood')
-      //this._drop(target);
+      this._drop(target);
     },
     _drop(target) {
       // 体验优化,异步执行下落动画

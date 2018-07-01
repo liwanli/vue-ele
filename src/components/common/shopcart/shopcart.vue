@@ -19,10 +19,9 @@
       </div>
     </div>
     <div class="ball-container">
-      <div>
-        <!--  @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop" -->
-        <transition name="drop">
-          <div class="ball">
+      <div v-for="ball in balls" >
+        <transition name="drop" @before-enter="beforeDrop" @enter="dropping" @after-enter="afterDrop">
+          <div class="ball" v-show="ball.show">
             <div class="inner inner-hook"></div>
           </div>
         </transition>
@@ -58,7 +57,20 @@
 
 <script>
   import BScroll from 'better-scroll';
-	import cartcontrol from '@/components/common/cartcontrol/cartcontrol'
+  import cartcontrol from '@/components/common/cartcontrol/cartcontrol';
+  
+  function getReact(element){
+    //IE、Firefox3+、Opera9.5、Chrome、Safari支持，在IE中，默认坐标从(2,2)开始计算，导致最终距离比其他浏览器多出两个像素
+    let rect = element.getBoundingClientRect(); //IE默认(2,2)
+    let top = document.documentElement.clientTop;
+    let left = document.documentElement.clientLeft;
+    return {
+      top    :   rect.top - top,
+      bottom :   rect.bottom - top,
+      left   :   rect.left - left,
+      right  :   rect.right - left
+    }
+  }
   export default {
     props: {
       selectFoods:{
@@ -103,6 +115,76 @@
         dropBalls: [],
         fold: true
       };
+    },
+    methods: {
+      drop(el) {
+        for (let i = 0; i < this.balls.length; i++) {
+          let ball = this.balls[i];
+          if (!ball.show) {
+            ball.show = true;
+            ball.el = el;
+            this.dropBalls.push(ball);
+            return;
+          }
+        }
+      },
+      toggleList() {
+        if (!this.totalCount) {
+          return;
+        }
+        this.fold = !this.fold;
+      },
+      hideList(){
+        this.fold = true;
+      },
+      //清空
+      empty(){
+        this.selectFoods.forEach(function(food){
+          food.count = 0;
+        })
+      },
+      //支付
+      pay(){
+        if (this.totalPrice>this.minPrice) {
+          alert(`需要支付${this.totalPrice}元`)
+        }
+      },
+      addFood(target) {
+        this.drop(target)
+      },
+      beforeDrop(el) {
+        let count = this.balls.length;
+        while (count--) {
+          let ball = this.balls[count];
+          if (ball.show) {
+            let rect = getReact(ball.el);
+            let x = rect.left - 32;
+            let y = -(window.innerHeight - rect.top - 22);
+            el.style.display = '';
+            el.style.webkitTransform = `translate3d(0,${y}px,0)`;
+            el.style.transform = `translate3d(0,${y}px,0)`;
+            let innerhook = el.getElementsByClassName('inner-hook')[0];
+            innerhook.style.webkitTransform = `translate3d(${x}px,0,0)`;
+            innerhook.style.transform = `translate3d(${x}px,0,0)`;
+          }
+        }
+      },
+      dropping(el) {
+        this.$nextTick(() => {
+          el.style.webkitTransform = 'translate3d(0,0,0)';
+          el.style.transform = 'translate3d(0,0,0)';
+          let inner = el.getElementsByClassName('inner-hook')[0];
+          inner.style.webkitTransform = 'translate3d(0,0,0)';
+          inner.style.transform = 'translate3d(0,0,0)';
+        });
+      },
+      afterDrop(el) {
+        let ball = this.dropBalls.shift();
+        if (ball) {
+          ball.show = false;
+          el.style.display = 'none';
+        }
+      }
     },
     computed: {
       //总价格
@@ -155,41 +237,6 @@
         }
         return !this.fold;
       }
-    },
-    methods: {
-      drop(el) {
-        for (let i = 0; i < this.balls.length; i++) {
-          let ball = this.balls[i];
-          if (!ball.show) {
-            ball.show = true;
-            ball.el = el;
-            this.dropBalls.push(ball);
-            return;
-          }
-        }
-      },
-      toggleList() {
-        if (!this.totalCount) {
-          return;
-        }
-        this.fold = !this.fold;
-      },
-      hideList(){
-        this.fold = true;
-      },
-      //清空
-      empty(){
-        this.selectFoods.forEach(function(food){
-          food.count = 0;
-        })
-      },
-      //支付
-      pay(){
-        if (this.totalPrice>this.minPrice) {
-          alert(`需要支付${this.totalPrice}元`)
-        }
-      }
-
     },
     components: {
       cartcontrol
