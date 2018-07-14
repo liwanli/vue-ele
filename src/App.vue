@@ -11,7 +11,6 @@
     </div>
     <!-- 切换菜单 End -->
     <router-view :seller="seller" :goods="goods" :ratings="ratings"></router-view>
-    </footer>
   </div>
 </template>
 
@@ -69,12 +68,12 @@
         flex: 1
         justfiy-content: center;
         text-align: center
-        a 
+        a
           display: block
           font-size 28px
           text-decoration none
           color: rgb( 77, 85, 93)
         .active
           color: rgb( 240, 20, 20)
-      
+
 </style>
